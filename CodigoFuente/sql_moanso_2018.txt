@@ -1,0 +1,40 @@
+create database restaurante
+user restaurante
+create table cliente(
+idcliente  int indentity(1,1) primary key,
+nombre_cli varchar(40),
+apellido_pa__CLI varchar (40),
+apellido_mat__CLI varchar(40),
+DNI  varchar(10),
+email varchar(100),
+celular int
+)
+
+
+create table pedido(
+idpedido int identity(1,1) primary key,
+idcliente int references restaurante,
+idvendedor int references vendendor,
+fechapedido varchar(40),
+nmesa numeric (50),
+estadop varchar(40),
+ 
+)
+create table vendedor(
+idvendedor int identity(1,1) primary key,
+descripcion varchar(40)
+)
+
+create table pedidodetalle(
+iddetallepedido int identity(1,1) primary key,
+idproducto int references producto,
+idpedido int references pedido,
+cantidad numeric (40),
+precio float (40)
+)
+
+create table producto(
+idproducto int identity(1,1) primary key,
+nombreP varchar(40),
+UNIDAD_MEDIDA_PRODUCTO varchar (30)
+)
